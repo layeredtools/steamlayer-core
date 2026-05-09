@@ -1,7 +1,7 @@
 [project]
 name = "steamlayer-core"
 version = "0.1.0"
-description = "Patch Steam games to use the any emulator — replaces Steam API DLLs, writes DLC config, and restores originals on demand."
+description = "Emulator-agnostic engine for identifying Steam games, patching DRM, and hydrating DLC metadata."
 readme = "README.md"
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
