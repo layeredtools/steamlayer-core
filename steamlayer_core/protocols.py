@@ -29,8 +29,8 @@ from __future__ import annotations
 import pathlib
 from typing import Any, Protocol, runtime_checkable
 
-from steamlayer_core.domain.events import AmbiguousMatchEvent, LowConfidenceEvent
 from steamlayer_core.domain.models import DiscoveryResult, DLCInfo
+from steamlayer_core.events import ResolutionEvent
 
 
 @runtime_checkable
@@ -57,7 +57,7 @@ class DisambiguationHandler(Protocol):
             return event.candidates[idx]
     """
 
-    def __call__(self, event: AmbiguousMatchEvent) -> DiscoveryResult: ...
+    def __call__(self, event: ResolutionEvent) -> DiscoveryResult: ...
 
 
 @runtime_checkable
@@ -77,7 +77,7 @@ class ConfirmationHandler(Protocol):
         ``event.game_folder_name``.
     """
 
-    def __call__(self, event: LowConfidenceEvent) -> DiscoveryResult: ...
+    def __call__(self, event: ResolutionEvent) -> DiscoveryResult: ...
 
 
 @runtime_checkable

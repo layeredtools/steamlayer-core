@@ -32,7 +32,7 @@ from steamlayer_core.discovery.local import LocalDiscovery
 from steamlayer_core.discovery.matcher import NameMatcher
 from steamlayer_core.discovery.query_strategy import QueryStrategy
 from steamlayer_core.discovery.repository import AppIndexRepository
-from steamlayer_core.domain.events import AmbiguousMatchEvent, LowConfidenceEvent
+from steamlayer_core.events import AmbiguousMatchEvent, LowConfidenceEvent
 from steamlayer_core.domain.exceptions import AppIDNotFoundError
 from steamlayer_core.domain.models import DiscoveryResult, ResolutionSource, ResolvedGame, SteamlayerOptions
 from steamlayer_core.protocols import (
@@ -316,6 +316,7 @@ class ResolutionEngine:
         from steamlayer_core.domain.exceptions import AmbiguousMatchError, LowConfidenceError
 
         seen: dict[int | None, DiscoveryResult] = {}
+        event: AmbiguousMatchEvent | LowConfidenceEvent
         for c in acc.candidates:
             if c.appid not in seen or c.confidence > seen[c.appid].confidence:
                 seen[c.appid] = c
