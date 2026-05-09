@@ -1,3 +1,5 @@
+<div align="center">
+
 # steamlayer-core
 
 [![PyPI](https://img.shields.io/pypi/v/steamlayer-core)](https://pypi.org/project/steamlayer-core/)
@@ -7,8 +9,7 @@
 
 The emulator-agnostic engine behind SteamLayer. Handles Steam game identification,
 DRM patching, and DLC hydration — with no opinion about which emulator you use.
-
----
+</div>
 
 ## Overview
 
