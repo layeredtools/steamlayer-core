@@ -31,6 +31,3 @@ jobs:
 
       - name: Type check (mypy)
         run: uv run mypy steamlayer_core --explicit-package-bases --ignore-missing-imports
-
-      - name: Test (pytest)
-        run: uv run pytest

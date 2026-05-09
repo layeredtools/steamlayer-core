@@ -1,3 +1,3 @@
 # Events
 
-::: steamlayer_core.domain.events
+::: steamlayer_core.events
