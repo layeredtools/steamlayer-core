@@ -1,0 +1,54 @@
+[project]
+name = "steamlayer-core"
+version = "0.1.0"
+description = "Patch Steam games to use the any emulator — replaces Steam API DLLs, writes DLC config, and restores originals on demand."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+requires-python = ">=3.13"
+dependencies = [
+    "requests>=2.33.1",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Operating System :: Microsoft :: Windows",
+    "Environment :: Console",
+]
+
+[project.urls]
+Source = "https://github.com/layeredtools/steamlayer-core"
+Issues = "https://github.com/layeredtools/steamlayer-core/issues"
+
+[dependency-groups]
+dev = [
+    "mkdocs-material>=9.7.6",
+    "mkdocstrings[python]>=1.0.4",
+    "mypy>=1.20.0",
+    "pre-commit>=4.5.1",
+    "pytest>=9.0.3",
+    "rich>=15.0.0",
+    "ruff>=0.15.10",
+    "types-requests>=2.33.0.20260408",
+]
+
+[tool.ruff]
+line-length = 115
+target-version = "py313"
+fix = true
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.13"
+strict = false
+warn_unused_ignores = false
+
+[[tool.mypy.overrides]]
+module = "steamlayer.tests.*"
+ignore_errors = true
