@@ -268,7 +268,7 @@ class SteamLayerClient:
 
         # Vendor is None because unpatching is emulator-agnostic; it only
         # cares about the files stored in the vault.
-        engine = PatchEngine(vendor=None)  # type: ignore
+        engine = PatchEngine(vendor=None, config_writer=self.config_writer)  # type: ignore
         return engine.unpatch(pathlib.Path(game_path), purge_vault=purge_vault, progress=self.progress)
 
     def fetch_dlcs(self, appid: int) -> dict[int, DLCInfo]:
@@ -333,7 +333,7 @@ class SteamLayerClient:
         """
         from steamlayer_core.patching.engine import PatchEngine
 
-        engine = PatchEngine(vendor=None)  # type: ignore
+        engine = PatchEngine(vendor=None, config_writer=self.config_writer)  # type: ignore
         return engine.is_patched(pathlib.Path(game_path))
 
     def __enter__(self) -> SteamLayerClient:
