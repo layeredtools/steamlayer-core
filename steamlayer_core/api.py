@@ -75,6 +75,7 @@ from steamlayer_core.protocols import (
     DisambiguationHandler,
     HTTPClientProtocol,
     ProgressCallback,
+    SteamWebClientProtocol,
     VendorProvider,
 )
 
@@ -155,7 +156,9 @@ class SteamLayerClient:
 
         matcher = NameMatcher()
         repo = AppIndexRepository(http=self._http_client)
-        web = SteamWebClient(http=self._http_client) if self._http_client else _OfflineSteamWebClient()
+        web: SteamWebClientProtocol = (
+            SteamWebClient(http=self._http_client) if self._http_client else _OfflineSteamWebClient()
+        )
 
         return ResolutionEngine(
             local_discovery=LocalDiscovery(),
@@ -300,7 +303,9 @@ class SteamLayerClient:
         self.progress("fetching_dlcs", f"Hydrating DLC metadata for AppID {appid}...")
 
         repo = AppIndexRepository(http=self._http_client)
-        web = SteamWebClient(http=self._http_client) if self._http_client else _OfflineSteamWebClient()
+        web: SteamWebClientProtocol = (
+            SteamWebClient(http=self._http_client) if self._http_client else _OfflineSteamWebClient()
+        )
         service = DLCService(
             repo=repo,
             web=web,

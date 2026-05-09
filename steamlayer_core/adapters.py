@@ -6,8 +6,8 @@ from typing import TYPE_CHECKING
 from steamlayer_core.domain.exceptions import AppIDNotFoundError, AppIDResolutionError
 
 if TYPE_CHECKING:
-    from steamlayer_core.domain.events import AmbiguousMatchEvent, LowConfidenceEvent
     from steamlayer_core.domain.models import DiscoveryResult
+    from steamlayer_core.events import AmbiguousMatchEvent, LowConfidenceEvent
 
 logger = logging.getLogger(__name__)
 

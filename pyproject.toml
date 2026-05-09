@@ -1,6 +1,6 @@
 [project]
 name = "steamlayer-core"
-version = "0.1.0"
+version = "0.1.1"
 description = "Emulator-agnostic engine for identifying Steam games, patching DRM, and hydrating DLC metadata."
 readme = "README.md"
 license = "MIT"

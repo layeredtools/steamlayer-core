@@ -30,7 +30,6 @@ from steamlayer_core.adapters import (
     FixedDisambiguationHandler,
 )
 from steamlayer_core.api import SteamLayerClient, fetch_dlcs, patch_game, resolve_game
-from steamlayer_core.domain.events import AmbiguousMatchEvent, LowConfidenceEvent
 from steamlayer_core.domain.exceptions import (
     AmbiguousMatchError,
     AppIDNotFoundError,
@@ -50,6 +49,7 @@ from steamlayer_core.domain.models import (
     ResolvedGame,
     SteamlayerOptions,
 )
+from steamlayer_core.events import AmbiguousMatchEvent, LowConfidenceEvent
 from steamlayer_core.patching.config import GoldbergConfigWriter
 from steamlayer_core.patching.engine import PatchEngine
 from steamlayer_core.patching.models import PatchResult, PatchTarget
