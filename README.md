@@ -1,3 +1,9 @@
+# ⚠️ This repository has been archived.
+
+This project has moved to a monorepo. Development continues at [layeredtools/steamlayer](https://github.com/layeredtools/steamlayer).
+
+If you were using `steamlayer-core` as a library, it is still published on [PyPI](https://pypi.org/project/steamlayer-core/) and continues to be maintained.
+
 <div align="center">
 
 # steamlayer-core
